@@ -75,5 +75,17 @@ namespace Primer_Examen_Parcial
             mostrar1();
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Principal V = new Principal();
+            V.Show();
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

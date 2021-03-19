@@ -17,6 +17,8 @@ namespace Primer_Examen_Parcial
         string archivo1 = "Departamentos.txt";
         List<Temperatura> temperaturas = new List<Temperatura>();
         string archivo2 = "Mediciones.txt";
+        List<Mediciones> mediciones = new List<Mediciones>();
+        string archivo3 = "Departamento Medición.txt";
         public Form1()
         {
             InitializeComponent();
@@ -54,6 +56,17 @@ namespace Primer_Examen_Parcial
 
             }
             reader.Close();
+            FileStream stream2 = new FileStream(archivo3, FileMode.Open, FileAccess.Read);
+            StreamReader reader2 = new StreamReader(stream2);
+            while (reader2.Peek() > -1)
+            {
+                Mediciones tempmostrar = new Mediciones();
+                tempmostrar.Nombre = reader2.ReadLine();
+                tempmostrar.Mediciones1 = reader2.ReadLine();
+                mediciones.Add(tempmostrar);
+
+            }
+            reader2.Close();
         }
        public void guardar_datos()
         {
@@ -67,6 +80,16 @@ namespace Primer_Examen_Parcial
                 writer.WriteLine(temperaturas[i].Fecha1);
             }
             writer.Close();
+            FileStream stream1 = new FileStream(archivo3, FileMode.OpenOrCreate, FileAccess.Write);
+            StreamWriter writer1 = new StreamWriter(stream1);
+
+            for (int i = 0; i < mediciones.Count; i++)
+            {
+                writer1.WriteLine(mediciones[i].Nombre);
+                writer1.WriteLine(mediciones[i].Mediciones1);
+                //writer1.WriteLine(mediciones[i].Fecha1);
+            }
+            writer1.Close();
 
 
         }
@@ -88,18 +111,25 @@ namespace Primer_Examen_Parcial
         {
             Temperatura asignartemp = new Temperatura();
             Departamentos departamentotemp = new Departamentos();
-            
+            Mediciones asignadotemp = new Mediciones();
+           
             asignartemp.Medición = textBox1.Text;
+            asignadotemp.Mediciones1 = textBox1.Text;
             asignartemp.Fecha1=Convert.ToDateTime(dateTimePicker1.Text);
             string tempnumero_identificación = " ";
+            string tempnombre = " ";
             comboBox1.ValueMember = "Codigo";
             comboBox1.DataSource = departamentos;
             tempnumero_identificación = comboBox1.SelectedValue.ToString();
-
+            comboBox1.ValueMember = "Departamento";
+            comboBox1.DataSource = departamentos;
+            tempnombre = comboBox1.SelectedValue.ToString();
+            asignadotemp.Nombre = tempnombre;
             // Se concatena las dos variables de clase dueño para mostrarlo
-      
+
             asignartemp.Numero_Identificación = tempnumero_identificación;
             temperaturas.Add(asignartemp);
+            mediciones.Add(asignadotemp);
             guardar_datos();
             limpiar_ingreso();
             MessageBox.Show("Ingreso correcta");
@@ -118,6 +148,13 @@ namespace Primer_Examen_Parcial
             textBox1.Enabled = true;
 
             button2.Visible = false;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Principal V = new Principal();
+            V.Show();
+            this.Hide();
         }
     }
 }
