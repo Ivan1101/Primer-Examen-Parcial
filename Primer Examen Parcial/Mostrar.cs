@@ -22,6 +22,7 @@ namespace Primer_Examen_Parcial
         public Mostrar()
         {
             InitializeComponent();
+            label1.Visible = false;
         }
         public void leer_datos()
         {
@@ -85,7 +86,16 @@ namespace Primer_Examen_Parcial
 
         private void button2_Click(object sender, EventArgs e)
         {
+            mediciones= mediciones.OrderByDescending(cuota => cuota.Mediciones1).ToList();
+            mostrar1();
+        }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            label1.Text = "";
+            label1.Visible = true;
+            Mediciones mayor = mediciones.OrderByDescending(al => al.Mediciones1).First();
+            label1.Text = mayor.Mediciones1;
         }
     }
 }
