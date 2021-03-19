@@ -12,9 +12,16 @@ namespace Primer_Examen_Parcial
 {
     public partial class Form1 : Form
     {
+       // List <>
+      
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
