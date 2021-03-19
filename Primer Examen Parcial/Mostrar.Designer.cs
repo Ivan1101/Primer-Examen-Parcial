@@ -52,7 +52,7 @@ namespace Primer_Examen_Parcial
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(47, 32);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(255, 155);
+            this.dataGridView1.Size = new System.Drawing.Size(243, 155);
             this.dataGridView1.TabIndex = 1;
             // 
             // button2

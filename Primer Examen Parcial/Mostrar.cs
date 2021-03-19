@@ -94,7 +94,7 @@ namespace Primer_Examen_Parcial
         {
             label1.Text = "";
             label1.Visible = true;
-            Mediciones mayor = mediciones.OrderByDescending(al => al.Mediciones1).First();
+            Mediciones mayor = mediciones.OrderBy(al => al.Mediciones1).First();
             label1.Text = mayor.Mediciones1;
         }
     }
