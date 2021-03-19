@@ -36,7 +36,7 @@ namespace Primer_Examen_Parcial
                 Departamentos tempmostrar = new Departamentos();
                 tempmostrar.Codigo = reader1.ReadLine();
                 tempmostrar.Departamento = reader1.ReadLine();
-               // estudiantes.Add(tempmostrar);
+                departamentos.Add(tempmostrar);
 
             }
             reader1.Close();
@@ -100,7 +100,6 @@ namespace Primer_Examen_Parcial
       
             asignartemp.Numero_Identificación = tempnumero_identificación;
             temperaturas.Add(asignartemp);
-            
             guardar_datos();
             limpiar_ingreso();
             MessageBox.Show("Ingreso correcta");
